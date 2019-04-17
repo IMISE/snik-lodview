@@ -107,7 +107,20 @@
 ## 	default query used to get direct properties, you can add a "FROM" clause here,
 ##	${IRI} will be replaced, it's always recommended to specify a limit for the query 
 
-	conf:defaultQueries """select distinct ?s ?p ?o { 
+	conf:defaultQueries """select distinct ?s ?p ?o
+		from <http://www.snik.eu/ontology/meta>
+		from <http://www.snik.eu/ontology/bb>
+		from <http://www.snik.eu/ontology/ob>
+		from <http://www.snik.eu/ontology/ciox>
+		from <http://www.snik.eu/ontology/he>
+		from <http://www.snik.eu/ontology/it>
+		from <http://www.snik.eu/ontology/it4it>
+		from <http://www.snik.eu/ontology/limes-exact>
+		from <http://www.snik.eu/ontology/match>
+		from <http://www.snik.eu/ontology/persian>
+		from <http://www.snik.eu/ontology/derived>
+		from <http://www.snik.eu/ontology/virtual>
+		{ 
 		{<${IRI}> ?p ?o} 
 		UNION 
 		{<${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o} 
