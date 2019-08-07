@@ -249,6 +249,7 @@ public class ResourceController {
 
 		addDataLinks(IRI, model, req, locale);
 		addLodliveLink(locale, model, IRI);
+		addSnikGraphLink(model, IRI);
 		enrichResponse(model, r, req, res);
 		return "resource";
 	}
@@ -332,6 +333,11 @@ public class ResourceController {
 
 	}
 
+	private void addSnikGraphLink(ModelMap model, String IRI)
+	{
+		model.addAttribute("snikGraphUrl", "https://www.snik.eu/graph/?class=" + IRI.replaceAll("#", "%23"));
+	}
+	
 	private void addLodliveLink(Locale locale, ModelMap model, String IRI) {
 		if (locale.getLanguage().equals("it")) {
 			model.addAttribute("lodliveUrl", "http://lodlive.it?" + IRI.replaceAll("#", "%23"));
