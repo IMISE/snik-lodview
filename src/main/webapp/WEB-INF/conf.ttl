@@ -120,15 +120,16 @@
 		from <http://www.snik.eu/ontology/persian>
 		from <http://www.snik.eu/ontology/virtual>
 		{ 
-		{<${IRI}> ?p ?o} 
-		UNION 
-		{<${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o} 
-		UNION 
-		{<${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s . FILTER(isBlank(?s)) . ?s ?p ?o}
-		UNION 
-		{<${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s2 . FILTER(isBlank(?s2)) . ?s2 ?p3 ?s . FILTER(isBlank(?s)) . ?s ?p ?o}		
+		{<${IRI}> ?p ?o} 	
 		} LIMIT 10000""" ;
 
+## Disable Querying for Blank Nodes because of Performance impact
+##	UNION 
+##		{<${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o} 
+##		UNION 
+##		{<${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s . FILTER(isBlank(?s)) . ?s ?p ?o}
+##		UNION 
+##		{<${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s2 . FILTER(isBlank(?s2)) . ?s2 ?p3 ?s . FILTER(isBlank(?s)) . ?s ?p ?o}		
 
 ## 	default query used to get resource to be included in serializations different 
 ##	from HTML, it's always recommended to specify a limit for the query 
