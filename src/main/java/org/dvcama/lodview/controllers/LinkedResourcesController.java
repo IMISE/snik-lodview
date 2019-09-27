@@ -119,8 +119,9 @@ public class LinkedResourcesController implements MessageSourceAware {
 
 			/* retrieving inverse relations */
 			try {
-				ResultBean results = new ResourceBuilder(messageSource).buildHtmlInverseResource(IRI, property, start, locale, conf, null);
+				ResultBean results = new ResourceBuilder(messageSource).buildHtmlInverseResource(IRI, property, start, locale, conf, null);				
 				Map<PropertyBean, List<TripleBean>> resources = results.getResources(IRI);
+				if(resources==null) {return "";}
 				for (PropertyBean key : resources.keySet()) {
 					for (TripleBean tripleBean : resources.get(key)) {
 						result.append("<resource " //
