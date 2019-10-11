@@ -27,6 +27,11 @@
 					</c:forEach>
 				</li>
 			</c:forEach>
+			<li>
+				<a target="_blank" href="${ontoWikiUrl}">
+					<sp:message code='footer.editOntoWiki' text='edit in OntoWiki' />
+				</a>
+			</li>
 		</ul>
 	</div>
 </footer>
