@@ -633,6 +633,7 @@ footer {
 
 #endpoint ul li {
 	min-height: 24px;
+	text-align: right;
 }
 
 #endpoint ul {
